@@ -70,7 +70,7 @@ Loading dataset
 df=pd.read_csv("./dataset/bank-additional-full.csv",sep=';')
 ```
 
-Task is to create a model that will help this banking institution determine, in advance, clients who will be receptive to such marketing campaigns. "Duration" is determined after a call is made and and highly corelated with the target value. To create a realistic model "Duration" should be droped. "campaign" is the number of contact made during the current marketing campaign but the task is to determine the targeted clients befor the campaign so we drop this variables from the dataset.
+Task is to create a model that will help this banking institution determine, in advance, clients who will be receptive to such marketing campaigns. "Duration" is determined after a call is made and and highly corelated with the target value. To create a realistic model "Duration" should be droped. "campaign" is the number of contact made during the current marketing campaign but the task is to determine the targeted clients before the campaign so we drop this variables from the dataset.
 
 
 ```python
@@ -273,7 +273,7 @@ df.isnull().sum()
 
 
 
-Above checking for missing values indicates that there are no Null, Nan values present in any feature. Further missing value analysis for categorical and nuemrical variables are performed below and impuation is performed for certain variables.
+Above checking for missing values indicates that there are no Null or Nan values present in any feature. Further missing value analysis for categorical and nuemrical variables are performed below and impuation is performed for certain variables.
 
 ## Target variable Analysis
 
@@ -318,17 +318,17 @@ fig.tight_layout()
 ![png](Case%20Studies_files/Case%20Studies_14_0.png)
 
 
-Categorical features "job", "marital", "education", "default", "loan" are having the value 'unknown' which can be considered as missing value but in a real setting these values may not able to obtain so we treat them as a separate value.
+Categorical features "job", "marital", "education", "default", "loan" are having the value 'unknown' which can be considered as missing values. But in a real setting these values may not be able to obtain. So we treat them as a separate value.
 
-"marital" is having a very low number of 'unknown' values count.
+"marital" is having a very low number of 'unknown' values.
 
-"default" is has credit in default feature which is argueably have a value "unknown" as a recorded value.
+"default" is a details of credit in default feature which is argueably have a value "unknown" as a recorded value.
 
-Hence , we do not remove or impute "unknown" values for the features and we treat 'unknown' as another value for the variables.
+Hence , we do not remove or impute "unknown" values for the features and we treat 'unknown' as another value for the above variables.
 
 ## Helper function
 
-Here we analyze the success rate with categorical variables and analyze the success rate of each value in that category.
+Here we analyze the success rate with categorical variables for each value in that category.
 
 
 ```python
@@ -344,7 +344,7 @@ def cat_analysis(feature):
 
 ### Job distribution
 
-Here we analyze the job distribution with categorical values and sorted by success percentage in decending order
+Here we analyze the job distribution with categorical values and sort them by success percentage in decending order.
 
 
 ```python
@@ -371,11 +371,11 @@ cat_analysis('job')
 ![png](Case%20Studies_files/Case%20Studies_19_1.png)
 
 
-Here we can see that 'students' and 'retired' peoples reposnded positively to the campaign
+Here we can see that 'students' and 'retired' peoples responded positively to the campaign.
 
 ### Marital distribution
 
-Here we analyze the marital distribution with categorical values and sorted by success percentage in decending order
+Here we analyze the marital distribution with categorical values and sort them by success percentage in decending order.
 
 
 ```python
@@ -394,11 +394,11 @@ cat_analysis('marital')
 ![png](Case%20Studies_files/Case%20Studies_22_1.png)
 
 
-Here we can see that 'single' people responded positively than other values 
+Here we can see that 'single' people responded positively than others. 
 
 ### Previous campaign outcome distribution
 
-Here we analyze the previous campaign outcome distribution with categorical values and sorted by success percentage in decending order
+Here we analyze the previous campaign outcome distribution with categorical values and sort them by success percentage in decending order.
 
 
 ```python
@@ -416,11 +416,11 @@ cat_analysis('poutcome')
 ![png](Case%20Studies_files/Case%20Studies_25_1.png)
 
 
-success rate illustrates that previously subscribed people responded more positively to the current campaign
+The success rate illustrates that previously subscribed people responded more positively to the current campaign.
 
 ### Contact method distribution
 
-Here we analyze the contact method distribution with categorical values and sorted by success percentage in decending order
+Here we analyze the contact method distribution with categorical values and sort them by success percentage in decending order.
 
 
 ```python
@@ -437,7 +437,7 @@ cat_analysis('contact')
 ![png](Case%20Studies_files/Case%20Studies_28_1.png)
 
 
-data shows that cellular is the more preferred method of communication
+The above chart shows that cellular is the more preferred method of communication.
 
 ## Correlation
 
@@ -458,8 +458,8 @@ sns.heatmap(df.corr(method='spearman'), annot=False, cmap='coolwarm')
 ![png](Case%20Studies_files/Case%20Studies_31_1.png)
 
 
-social and economic context attributes have high correlation among them.
-'euribor3m', 'nr.employed' and 'euribor3m', 'emp.var.rate' have high correlation among them
+The social and economic context attributes have high correlation among them.
+'euribor3m', 'nr.employed' and 'euribor3m', 'emp.var.rate' have high correlation among them.
 
 ## Missing values and outliers in numerical variables
 
@@ -582,9 +582,9 @@ df.describe()
 
 
 
-"pdays" have the value 999 which is indicated as the customers are never been contacted previously.
+"pdays" has the value 999 which indicates that the customers are never been contacted previously.
 
-"Age", "previous" have outliers since outliers can be defined as $values$ > $Q_3 + 1.5 \times IQR$ or $values$ < $Q_1 - 1.5 \times IQR$. From the analysis of numerical variables we can observe that  max('age') = 98 , max('previous')=7 respectively which are having outliers
+"Age" and "previous" have outliers since outliers can be defined as $values$ > $Q_3 + 1.5 \times IQR$ or $values$ < $Q_1 - 1.5 \times IQR$. From the analysis of numerical variables we can observe that  max('age') = 98 , max('previous')=7 respectively which are having outliers.
 
 
 ```python
@@ -605,7 +605,7 @@ sns.boxplot(y=df['previous'], ax=axes[1])
 ![png](Case%20Studies_files/Case%20Studies_36_1.png)
 
 
-Age is having maximum of 98 and previous is having maximum of 7 which are acceptable values and in a real life setting the values can be exist and we do not remove them.
+Age is having maximum of 98 and previous is having maximum of 7 which are acceptable values because in a real life setting the values can exist. We do not remove them.
 
 
 ```python
@@ -621,7 +621,7 @@ plt.show()
 ![png](Case%20Studies_files/Case%20Studies_38_0.png)
 
 
-very high percentage of 'pdays' is having the value 999 which indicated that the clients never been contacted before. We can handle this by changing it as categorical variable.
+Very high percentage of 'pdays' is having the value 999 which indicates that the clients never been contacted before. We can handle this by changing it as categorical variable.
 
 
 ```python
@@ -998,7 +998,7 @@ df_scores.sort_values('f1-score', ascending=False)
 
 ## Sampling to balance dataset (SMOTE)
 
-Since this is highly imbalanced data, we use oversampling technique by aplying SMOTE to balance the class.
+Since this is highly imbalanced data, we use oversampling technique by applying SMOTE to balance the class.
 
 
 ```python
@@ -1090,11 +1090,11 @@ df_scores_balanced.sort_values('f1-score', ascending=False)
 
 
 
-Balanced data improved the overall performance of the models. XGBoost and Gradient Boosting models shows best performance among tested models.
+The overall performance of the models is improved after balancing the data. XGBoost and Gradient Boosting models shows best performance among tested models.
 
 ## Hyperparameter Tuning
 
-I'm tuning hyper parameters for the best two models to improve their performance
+I'm tuning hyper parameters for the best two models to improve their performance.
 
 
 ```python
@@ -1313,11 +1313,11 @@ plt.ylabel("Feature")
 
 ## Findings
 
-- XGBoost model showed best performance among the tested models
-- Most important feature that impact on client's decision is **nr.employed**: number of employees
-- Previously subscibed clients are more positive to the following campaign (65.1%)
-- In the current campaign 11.3% of clients subscribed to the term deposit
-- Old people tend to have higher success rate (clients who are over 60 years old subcribed 45.5% of the time)
+- XGBoost model showed best performance among the tested models.
+- Most important feature that impact on client's decision is **nr.employed**: number of employees.
+- Previously subscibed clients are more positive to the following campaign (65.1%).
+- In the current campaign 11.3% of clients subscribed to the term deposit.
+- Old people tend to have higher success rate (clients who are over 60 years old subcribed 45.5% of the time).
 
 
 ```python
