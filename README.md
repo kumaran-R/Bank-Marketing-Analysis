@@ -605,7 +605,7 @@ sns.boxplot(y=df['previous'], ax=axes[1])
 ![png](Case%20Studies_files/Case%20Studies_36_1.png)
 
 
-Age is having maximum of 98 and previous is having maximum of 7 which are acceptable values because in a real life setting the values can exist. We do not remove them.
+Age is having maximum of 98 and previous is having maximum of 7 which are acceptable values because in a real life setting the values can exist. We do not remove the outliers.
 
 
 ```python
@@ -669,7 +669,7 @@ print('Clients with age greater than 60 :',senior,"% subscribed")
     Clients with age greater than 60 : 45.494505494505496 % subscribed
     
 
-## Categorical variables One-hot encoding
+## Categorical variables encoding
 
 
 ```python
