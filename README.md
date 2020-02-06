@@ -70,7 +70,11 @@ from sklearn.model_selection import train_test_split
 df=pd.read_csv("./dataset/bank-additional-full.csv",sep=';')
 ```
 
+### Dropping features 'duration' and 'campaign'
+
 Task is to create a model that will help this banking institution determine, in advance, clients who will be receptive to such marketing campaigns. "Duration" is determined after a call is made and and highly corelated with the target value. To create a realistic model "Duration" should be droped. "campaign" is the number of contact made during the current marketing campaign but the task is to determine the targeted clients before the campaign so we drop this variables from the dataset.
+
+
 
 
 ```python
@@ -84,7 +88,7 @@ df.shape
     (41188, 19)
 
 
-
+### Explore the dataset
 
 ```python
 df.head()
