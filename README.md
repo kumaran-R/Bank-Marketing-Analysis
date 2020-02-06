@@ -9,7 +9,7 @@ The goal is to predict if the client will subscribe a term deposit (indicated in
 The dataset consist of 41188 records and 17 attributes.
 
 # Dataset features information:
-# Bank Client data:
+### Bank Client data:
 1 - age (numeric)
 
 2 - job : type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown')
@@ -26,7 +26,7 @@ The dataset consist of 41188 records and 17 attributes.
 
 8 - balance: average yearly balance, in euros (numeric) 
 
-# Related with the last contact of the current campaign:
+### Related with the last contact of the current campaign:
 9 - contact: contact communication type (categorical: 'cellular','telephone') 
 
 10 - month: last contact month of year (categorical: 'jan', 'feb', 'mar', ..., 'nov', 'dec')
@@ -35,7 +35,7 @@ The dataset consist of 41188 records and 17 attributes.
 
 12 - duration: last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y='no'). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.
 
-# Other attributes:
+### Other attributes:
 13 - campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)
 
 14 - pdays: number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously contacted)
@@ -44,7 +44,7 @@ The dataset consist of 41188 records and 17 attributes.
 
 16 - poutcome: outcome of the previous marketing campaign (categorical: 'failure','nonexistent','success')
 
-# Social and economic context attributes:
+### Social and economic context attributes:
 17 - emp.var.rate: employment variation rate - quarterly indicator (numeric)
 
 18 - cons.price.idx: consumer price index - monthly indicator (numeric) 
