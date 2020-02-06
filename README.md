@@ -6,7 +6,7 @@ Source of the Data : https://archive.ics.uci.edu/ml/datasets/bank+marketing
 The goal is to predict if the client will subscribe a term deposit (indicated in the y variable). Create a model that will help this banking institution determine, in advance, clients who will be receptive to such marketing campaigns.
 
 # Dataset Information:
-The dataset consist of 41188 records and 17 attributes.
+The dataset consist of 41188 records and 21 attributes.
 
 # Dataset features information:
 
